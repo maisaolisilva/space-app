@@ -9,6 +9,9 @@ const StyledHeader = styled.header`
     img {
         max-width: 212px;
     }
+    @media(max-width: 775px) {
+        padding: 40px;
+    }
 `
 
 const Cabecalho = () => {

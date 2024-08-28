@@ -19,6 +19,9 @@ const StyledInput = styled.input`
     font-weight: 400;
     font-size: 20px;
     line-height: 20px;
+    @media (max-width: 775px){
+        width: 400px;
+    }
 `
 const StyledImg = styled.img`
     position: absolute;

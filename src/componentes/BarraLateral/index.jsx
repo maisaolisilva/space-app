@@ -6,6 +6,9 @@ const StyledList = styled.ul`
     padding: 0;
     margin: 0;
     width: 212px;
+    @media(max-width: 775px){
+        width: 200px;
+    }
 `
 const BarraLateral = () => {
     return(
