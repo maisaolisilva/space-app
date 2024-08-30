@@ -33,6 +33,7 @@ const App= () =>{
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
   const [fotosGaleria, setFotosGaleria] = useState(fotos)
   const [tagSelecionada, setTagSelecionada] = useState(0)
+  const [pesquisa, setPesquisa] = useState("")
 
   const aoAlternarFavorito = (foto) => {
     setFotosGaleria(fotosGaleria =>
@@ -54,20 +55,28 @@ const App= () =>{
   const aoAlterarTag = (id) => {
     setTagSelecionada(id)
   }
+
+  const aoPesquisar = (pesquisa) => {
+    setPesquisa(pesquisa)
+  }
   
   useEffect(() => {
     if (tagSelecionada !== 0) {
       setFotosGaleria(fotos.filter(foto => foto.tagId === tagSelecionada));
     } else {
-      setFotosGaleria(fotos);
+      setFotosGaleria(fotos)
     }
   }, [tagSelecionada])
+  
+  useEffect(() => {
+    setFotosGaleria(fotos.filter(foto => foto.titulo.toLowerCase().includes(pesquisa.toLowerCase()) ));
+  }, [pesquisa])
 
   return (
     <FundoGradiente>
       <EstilosGlobais />
       <AppContainer>
-        <Cabecalho />
+        <Cabecalho aoPesquisar={aoPesquisar} />
         <MainContainer>
           <BarraLateral />
           <ConteudoGaleria>

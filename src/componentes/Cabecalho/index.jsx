@@ -8,17 +8,25 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     img {
         max-width: 212px;
+        cursor: pointer;
     }
     @media(max-width: 775px) {
         padding: 40px;
     }
 `
 
-const Cabecalho = () => {
+const Cabecalho = ({aoPesquisar}) => {
+    const pesquisaVerificada = (value) => {
+        // Verifique se deseja disparar a pesquisa apenas em Enter ou Blur
+     
+        aoPesquisar(value);
+        console.log(value)
+    
+      }
     return (<>
          <StyledHeader>
             <img alt="Logo escrito SpaceApp " src="/assets/logo.png"/>
-            <CampoTexto />
+            <CampoTexto aoAlterar={pesquisaVerificada}/>
         </StyledHeader>
     </> 
     )

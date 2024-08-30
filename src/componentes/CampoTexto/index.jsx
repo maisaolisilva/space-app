@@ -31,9 +31,9 @@ const StyledImg = styled.img`
     height: 38px;
 `;
 
-const CampoTexto = (props) => {
+const CampoTexto = ({aoAlterar}) => {
     return(<StyledContainer>
-            <StyledInput placeholder="O que você procura?" />
+            <StyledInput placeholder="O que você procura?" onChange={(event)=>aoAlterar(event.target.value)}/>
             <StyledImg src={lupa} alt="Ícone de lupa" />
         </StyledContainer>
     )
